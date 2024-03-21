@@ -1,7 +1,5 @@
 import sys
 
-# import argparse
-
 constantine = r"""
         \   ^__^
          \  (oo)\_______
@@ -16,12 +14,6 @@ if len(sys.argv) <= 1:
     )
     exit()
 params = sys.argv[1]
-
-# parser = argparse.ArgumentParser()
-# parser.add_argument(
-#    "--cowsay", dest="what_cowsay", type=str, help="What does the cow want to say?"
-# )
-# args = parser.parse_args()
 
 
 # cut at 39, but also 59?
@@ -42,7 +34,6 @@ def cowsay(input: str):
 
 
 def main():
-    # cowsay("I can't remember how to make args work")
     cowsay(params)
 
 

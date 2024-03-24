@@ -42,7 +42,16 @@ def cowsay(input: str):
  {dash}{constantine}"""
 
     if len(wrapped_text) >= 3:
-        print(">3 todo")
+        max_length = len(wrapped_text[0])
+        for _ in range(0, max_length):
+            underscore = underscore + "_"
+            dash = dash + "-"
+        say = f"""\
+ {underscore}
+/ {wrapped_text[0]} \\
+| {wrapped_text[1]:<39} |
+\\ {wrapped_text[2]:<39} /
+ {dash}{constantine}"""
 
     print(say)
 

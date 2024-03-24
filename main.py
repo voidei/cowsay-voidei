@@ -18,19 +18,11 @@ def cowsay(input: str):
     wrapped_text = textwrap.wrap(input, width=39, break_long_words=False)
 
     if len(wrapped_text) == 1:
-        underscore = cow.increase_character("_", 0, length)
-        dash = cow.increase_character("-", 0, length)
-        say = f""" {underscore}\n< {input} >\n {dash}{cow.constantine}"""
+        say = cow.print_single_line(input, length)
 
     if len(wrapped_text) == 2:
         max_length = len(wrapped_text[0])
-        underscore = cow.increase_character("_", 0, max_length)
-        dash = cow.increase_character("-", 0, max_length)
-        say = f"""\
- {underscore}
-/ {wrapped_text[0]} \\
-\\ {wrapped_text[1]:<39} /
- {dash}{cow.constantine}"""
+        say = cow.print_double_line(wrapped_text, max_length)
 
     if len(wrapped_text) >= 3:
         max_length = len(wrapped_text[0])
@@ -39,8 +31,8 @@ def cowsay(input: str):
         say = f"""\
  {underscore}
 / {wrapped_text[0]} \\
-{cow.generate_mid_line(wrapped_text[1], max_length)}
-{cow.generate_last_line(wrapped_text[2], max_length)}
+{cow.generate_mid_line(wrapped_text[1], max_length, True)}
+{cow.generate_last_line(wrapped_text[2], max_length, True)}
  {dash}{cow.constantine}"""
 
     print(say)

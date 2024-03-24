@@ -2,10 +2,10 @@
 Functions to de-clutter the main file.
 """
 
-constantine = r"""
-        \   ^__^
-         \  (oo)\_______
-            (__)\       )\/\
+constantine = """\
+        \\   ^__^
+         \\  (oo)\\_______
+            (__)\\       )\\/\\
                 ||----w |
                 ||     ||
 """
@@ -30,6 +30,25 @@ def increase_character(input: str, lower: int, upper: int):
     return output
 
 
+def print_single_line(input: str, length: int):
+    output = f"""\
+  {increase_character("_", 0, length-1)}
+< {input} >
+  {increase_character("-", 0, length-1)}
+{constantine}"""
+    return output
+
+
+def print_double_line(input: list[str], length: int):
+    output = f"""\
+  {increase_character("_", 0, length-1)}
+/ {input[0]} \\
+\\ {input[1].ljust(length)} /
+  {increase_character("-", 0, length-1)}
+{constantine}"""
+    return output
+
+
 def generate_first_line(input):
     dash = "-"
     underscore = "_"
@@ -37,11 +56,19 @@ def generate_first_line(input):
     return output
 
 
-def generate_mid_line(input: str, line_length: int):
-    output = f"| {input.ljust(line_length)} |"
+def generate_mid_line(input: str, line_length: int, triple: bool = False):
+    output = ""
+    if triple:
+        output = f"| {input.ljust(line_length)} |"
+    if not triple:
+        output = f"{input}"
     return output
 
 
-def generate_last_line(input: str, line_length: int):
-    output = f"\\ {input.ljust(line_length)} /"
+def generate_last_line(input: str, line_length: int, triple: bool = False):
+    output = ""
+    if triple:
+        output = f"\\ {input.ljust(line_length)} /"
+    if not triple:
+        output = f"{input}"
     return output

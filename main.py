@@ -1,13 +1,8 @@
 import sys
 import textwrap
 
-constantine = r"""
-        \   ^__^
-         \  (oo)\_______
-            (__)\       )\/\
-                ||----w |
-                ||     ||
-"""  # this is the cow
+from thecow import constantine
+
 # print(len(sys.argv))
 # print(sys.argv)
 

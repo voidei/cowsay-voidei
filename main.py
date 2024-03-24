@@ -1,7 +1,7 @@
 import sys
 import textwrap
 
-from thecow import check_input, constantine
+from thecow import check_input, constantine, increase_character
 
 check_input(sys.argv)
 
@@ -14,21 +14,18 @@ params = sys.argv[1]
 def cowsay(input: str):
     """The actual cowsay function"""
     length = len(input.strip())
-    underscore = "_"
-    dash = "-"
     say = ""
     wrapped_text = textwrap.wrap(input, width=39, break_long_words=False)
+
     if len(wrapped_text) == 1:
-        for _ in range(0, length):
-            underscore = underscore + "_"
-            dash = dash + "-"
+        underscore = increase_character("_", 0, length)
+        dash = increase_character("-", 0, length)
         say = f""" {underscore}\n< {input} >\n {dash}{constantine}"""
 
     if len(wrapped_text) == 2:
         max_length = len(wrapped_text[0])
-        for _ in range(0, max_length):
-            underscore = underscore + "_"
-            dash = dash + "-"
+        underscore = increase_character("_", 0, max_length)
+        dash = increase_character("-", 0, max_length)
         say = f"""\
  {underscore}
 / {wrapped_text[0]} \\
@@ -37,9 +34,8 @@ def cowsay(input: str):
 
     if len(wrapped_text) >= 3:
         max_length = len(wrapped_text[0])
-        for _ in range(0, max_length):
-            underscore = underscore + "_"
-            dash = dash + "-"
+        underscore = increase_character("_", 0, max_length)
+        dash = increase_character("-", 0, max_length)
         say = f"""\
  {underscore}
 / {wrapped_text[0]} \\

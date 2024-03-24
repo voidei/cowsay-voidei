@@ -17,8 +17,7 @@ def cowsay(input: str):
     underscore = "_"
     dash = "-"
     say = ""
-    max_width = 39
-    wrapped_text = textwrap.wrap(input, max_width)
+    wrapped_text = textwrap.wrap(input, width=39, break_long_words=False)
     if len(wrapped_text) == 1:
         for _ in range(0, length):
             underscore = underscore + "_"

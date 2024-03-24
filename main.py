@@ -21,8 +21,7 @@ def cowsay(input: str):
         say = cow.print_single_line(input, length)
 
     if len(wrapped_text) == 2:
-        max_length = len(wrapped_text[0])
-        say = cow.print_double_line(wrapped_text, max_length)
+        say = cow.print_double_line(wrapped_text, len(wrapped_text[0]))
 
     if len(wrapped_text) >= 3:
         max_length = len(wrapped_text[0])

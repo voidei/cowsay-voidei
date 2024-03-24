@@ -6,6 +6,7 @@ from thecow import check_input, constantine
 check_input(sys.argv)
 
 params = sys.argv[1]
+"""What the cow says."""
 
 
 # cut at 39, but also 59?

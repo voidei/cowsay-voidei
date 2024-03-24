@@ -1,4 +1,5 @@
 import sys
+import textwrap
 
 constantine = r"""
         \   ^__^
@@ -25,12 +26,28 @@ def cowsay(input: str):
     length = len(input.strip())
     underscore = "_"
     dash = "-"
-    if length < 39:
+    say = ""
+    max_width = 39
+    wrapped_text = textwrap.wrap(input, max_width)
+    if len(wrapped_text) == 1:
         for _ in range(0, length):
             underscore = underscore + "_"
             dash = dash + "-"
+        say = f""" {underscore}\n< {input} >\n {dash}{constantine}"""
 
-    say = f""" {underscore}\n< {input} >\n {dash}{constantine}"""
+    if len(wrapped_text) == 2:
+        max_length = len(wrapped_text[0])
+        for _ in range(0, max_length):
+            underscore = underscore + "_"
+            dash = dash + "-"
+        say = f"""\
+ {underscore}
+/ {wrapped_text[0]} \\
+\\ {wrapped_text[1]:<39} /
+ {dash}{constantine}"""
+
+    if len(wrapped_text) >= 3:
+        print(">3 todo")
 
     print(say)
 

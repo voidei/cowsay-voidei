@@ -1,16 +1,10 @@
 import sys
 import textwrap
 
-from thecow import constantine
+from thecow import check_input, constantine
 
-# print(len(sys.argv))
-# print(sys.argv)
+check_input(sys.argv)
 
-if len(sys.argv) <= 1:
-    print(
-        "You didn't include anything for the cow to say!\nThe cow will remember this transgression..."
-    )
-    exit()
 params = sys.argv[1]
 
 

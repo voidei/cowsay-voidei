@@ -2,7 +2,6 @@
 Functions to de-clutter the main file.
 """
 
-
 constantine = r"""
         \   ^__^
          \  (oo)\_______
@@ -35,4 +34,14 @@ def generate_first_line(input):
     dash = "-"
     underscore = "_"
     output = f"{input}"
+    return output
+
+
+def generate_mid_line(input: str, line_length: int):
+    output = f"| {input.ljust(line_length)} |"
+    return output
+
+
+def generate_last_line(input: str, line_length: int):
+    output = f"\\ {input.ljust(line_length)} /"
     return output

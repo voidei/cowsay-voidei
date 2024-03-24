@@ -39,8 +39,8 @@ def cowsay(input: str):
         say = f"""\
  {underscore}
 / {wrapped_text[0]} \\
-| {wrapped_text[1]:<39} |
-\\ {wrapped_text[2]:<39} /
+{cow.generate_mid_line(wrapped_text[1], max_length)}
+{cow.generate_last_line(wrapped_text[2], max_length)}
  {dash}{cow.constantine}"""
 
     print(say)

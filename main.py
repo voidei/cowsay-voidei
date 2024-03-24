@@ -7,6 +7,8 @@ constantine = r"""
                 ||----w |
                 ||     ||
 """  # this is the cow
+# print(len(sys.argv))
+# print(sys.argv)
 
 if len(sys.argv) <= 1:
     print(
@@ -24,7 +26,7 @@ def cowsay(input: str):
     underscore = "_"
     dash = "-"
     if length < 39:
-        for x in range(0, length):
+        for _ in range(0, length):
             underscore = underscore + "_"
             dash = dash + "-"
 

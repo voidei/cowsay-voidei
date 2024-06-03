@@ -1,6 +1,4 @@
-"""
-Functions to de-clutter the main file.
-"""
+"""Functions to de-clutter the main file."""
 
 constantine = """\
         \\   ^__^
@@ -32,27 +30,27 @@ def increase_character(input: str, lower: int, upper: int):
 
 def print_single_line(input: str, length: int):
     output = f"""\
-  {increase_character("_", 0, length-1)}
+ {increase_character("_", 0, length+1)}
 < {input} >
-  {increase_character("-", 0, length-1)}
+ {increase_character("-", 0, length+1)}
 {constantine}"""
     return output
 
 
 def print_double_line(input: list[str], length: int):
     output = f"""\
-  {increase_character("_", 0, length-1)}
+ {increase_character("_", 0, length+1)}
 / {input[0]} \\
 \\ {input[1].ljust(length)} /
-  {increase_character("-", 0, length-1)}
+ {increase_character("-", 0, length+1)}
 {constantine}"""
     return output
 
 
-def generate_first_line(input):
-    dash = "-"
-    underscore = "_"
-    output = f"{input}"
+def generate_first_line(input: str, length: int):
+    output = f"""\
+ {increase_character("-", 0, length+1)}
+/ {input} \\"""
     return output
 
 

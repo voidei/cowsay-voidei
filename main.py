@@ -27,11 +27,11 @@ def cowsay(input: str):
     if len(wrapped_text) >= 3:
         max_length = len(wrapped_text[0])
         say = f"""\
- {cow.increase_character("_", 0, max_length)}
+ {cow.increase_character("_", 0, max_length+1)}
 / {wrapped_text[0]} \\
 {cow.generate_mid_line(wrapped_text[1], max_length, True)}
 {cow.generate_last_line(wrapped_text[2], max_length, True)}
- {cow.increase_character("-", 0, max_length)}
+ {cow.increase_character("-", 0, max_length+1)}
 {cow.constantine}"""
 
     print(say)
